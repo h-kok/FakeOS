@@ -1,0 +1,88 @@
+$primary-colour: rgb(192, 192, 192);
+$secondary-colour: rgb(0, 0, 128);
+$default-font: Arial, Helvetica, sans-serif;
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: $default-font;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+body {
+    background-image: url("./assets/desktop-background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.desktop-icons {
+    display: grid;
+    grid-gap: 3vw;
+    padding: 2vw;
+}
+
+.start-menu-wrapper {
+    // position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.start-btn {
+    display: flex;
+    align-items: center;
+    background-color: $primary-colour;
+    padding: 0 1vw;
+    height: 3vw;
+    margin-left: 1px;
+    position: fixed;
+    bottom: 0;
+}
+
+.start-menu {
+    display: none;
+    position: absolute;
+    bottom: 3vw;
+    margin-left: 1px;
+    background-color: $primary-colour;
+    &__item {
+        display: flex;
+        align-items: center;
+        border: 1px solid black;
+        height: 3vw;
+        padding: 5px;
+        padding-right: 70px;
+        &:hover {
+            background-color: $secondary-colour;
+            color: white;
+        }
+    }
+    &__arrow {
+        position: absolute;
+        right: 0;
+        margin-right: 5px;
+    }
+}
+
+.start-menu-show {
+    display: grid;
+}
+
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: $primary-colour;
+    height: 3vw;
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+}
+
+.current-date {
+    padding-right: 1%;
+    position: fixed;
+    right: 0;
+}
