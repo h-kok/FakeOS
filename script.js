@@ -15,8 +15,12 @@ document.querySelector(".current-date").innerHTML = currentDateTime;
 // wordpad
 const desktopIcons = document.querySelectorAll(".desktop-icons__wrapper");
 const wordpadIcon = desktopIcons[0];
+const solitaireIcon = desktopIcons[1];
+
 const app = document.querySelectorAll(".app");
+const wordpad = app[0];
 const solitaire = app[1];
+
 const wordpadApp = document.querySelector(".app__wordpad");
 const titleBar = document.querySelectorAll(".app__title-bar");
 const titleBarWordpad = titleBar[0];
@@ -59,32 +63,41 @@ const createCross = (parentNode) => {
 };
 
 wordpadIcon.addEventListener("click", () => {
-    createElement("div", ".app__title-bar", "", wordpadApp);
+    wordpad.className = "app__wordpad";
+
+    const appTitleBar = document.createElement("div");
+    appTitleBar.className = "app__title-bar";
+    wordpad.appendChild(appTitleBar);
+
     createImg(
         "./assets/icon-wordpad.png",
-        ".app__title-bar-img",
-        titleBarWordpad,
+        "app__title-bar-img",
+        appTitleBar,
         "app__title-bar-img"
     );
-    createElement("p", ".app__name", "Untitled - WordPad", titleBarWordpad);
-    createCross(titleBarWordpad);
-    createElement("p", ".app__menu", "File", subtitleBarWordpad, "app__menu");
-    createElement("p", ".app__menu", "Edit", subtitleBarWordpad, "app__menu");
-    createElement("p", ".app__menu", "View", subtitleBarWordpad, "app__menu");
-    createElement(
-        "textarea",
-        ".app__textarea",
-        "",
-        appContentWordpad,
-        "app__textarea"
-    );
+    createElement("p", "app__name", "Untitled - WordPad", appTitleBar);
+    createCross(appTitleBar);
+    wordpad.classList.add("app");
+
+    const subtitleBar = document.createElement("div");
+    subtitleBar.className = "app__subtitle-bar";
+    wordpad.appendChild(subtitleBar);
+
+    createElement("p", "app__menu", "File", subtitleBar, "app__menu");
+    createElement("p", "app__menu", "Edit", subtitleBar, "app__menu");
+    createElement("p", "app__menu", "View", subtitleBar, "app__menu");
+
+    const appContent = document.createElement("div");
+    appContent.className = "app__content";
+    wordpad.appendChild(appContent);
+
+    createElement("textarea", "app__textarea", "", appContent, "app__textarea");
     // app.classList.add("app__border"); //not working
     // appMenu.classList.add("app__menu", "app__menu:hover");
 });
 // appBorder.addEventListener("click");
 
 // solitaire
-const solitaireIcon = desktopIcons[1];
 
 solitaireIcon.addEventListener("click", () => {
     solitaire.className = "app__solitaire";
@@ -99,9 +112,8 @@ solitaireIcon.addEventListener("click", () => {
         appTitleBar,
         "app__title-bar-img"
     );
-    //solitaire text
+
     createElement("p", ".app__name", "Solitaire", appTitleBar);
-    //cross
     createCross(appTitleBar);
     solitaire.classList.add("app");
 
@@ -122,9 +134,6 @@ solitaireIcon.addEventListener("click", () => {
         appContent,
         "app__solitaire-img"
     );
-    // document
-    //     .querySelector(".app__content-img")
-    //     .classList.add("app__content-img");
 });
 
 // app 3
