@@ -49,8 +49,11 @@ body {
         top: 25vh;
         left: 50vw;
     }
-    &__border {
-        border: 3px solid $primary-colour;
+    &__solitaire {
+        width: 60vw;
+        height: 81vh;
+        top: 10vh;
+        left: 20vw;
     }
     &__title-bar {
         display: flex;
@@ -89,6 +92,10 @@ body {
         //cant style yet
         width: 40vw;
         height: 40vh;
+    }
+    &__solitaire-img {
+        width: 60vw;
+        height: 75vh;
     }
 }
 

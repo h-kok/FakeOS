@@ -16,6 +16,7 @@ document.querySelector(".current-date").innerHTML = currentDateTime;
 const desktopIcons = document.querySelectorAll(".desktop-icons__wrapper");
 const wordpadIcon = desktopIcons[0];
 const app = document.querySelectorAll(".app");
+const solitaire = app[1];
 const wordpadApp = document.querySelector(".app__wordpad");
 const titleBar = document.querySelectorAll(".app__title-bar");
 const titleBarWordpad = titleBar[0];
@@ -35,25 +36,25 @@ const createElement = (
     css
 ) => {
     const newTag = document.createElement(elementType);
-    newTag.classList.add(newClassName);
+    newTag.className = newClassName;
     const newText = document.createTextNode(textToCreate);
     newTag.appendChild(newText);
     parentNode.appendChild(newTag);
     newTag.classList.add(css);
 };
 
-const createImg = (imgSrc, newClassName, parentNode) => {
+const createImg = (imgSrc, newClassName, parentNode, styling) => {
     const img = document.createElement("img");
     img.src = imgSrc;
-    img.classList.add(newClassName);
+    img.className = newClassName;
     parentNode.appendChild(img);
-    img.classList.add("app__title-bar-img");
+    img.classList.add(styling);
 };
 
 const createCross = (parentNode) => {
     const img = document.createElement("img");
     img.src = "./assets/icon-close.png";
-    img.classList.add("app__close-window");
+    img.className = "app__close-window";
     parentNode.appendChild(img);
 };
 
@@ -62,7 +63,8 @@ wordpadIcon.addEventListener("click", () => {
     createImg(
         "./assets/icon-wordpad.png",
         ".app__title-bar-img",
-        titleBarWordpad
+        titleBarWordpad,
+        "app__title-bar-img"
     );
     createElement("p", ".app__name", "Untitled - WordPad", titleBarWordpad);
     createCross(titleBarWordpad);
@@ -84,6 +86,46 @@ wordpadIcon.addEventListener("click", () => {
 // solitaire
 const solitaireIcon = desktopIcons[1];
 
-solitaireIcon.addEventListener("click", () => {});
+solitaireIcon.addEventListener("click", () => {
+    solitaire.className = "app__solitaire";
+
+    const appTitleBar = document.createElement("div");
+    appTitleBar.className = "app__title-bar";
+    solitaire.appendChild(appTitleBar);
+
+    createImg(
+        "./assets/icon-solitaire.png",
+        "app__title-bar-img",
+        appTitleBar,
+        "app__title-bar-img"
+    );
+    //solitaire text
+    createElement("p", ".app__name", "Solitaire", appTitleBar);
+    //cross
+    createCross(appTitleBar);
+    solitaire.classList.add("app");
+
+    const appSubtitleBar = document.createElement("div");
+    appSubtitleBar.className = "app__subtitle-bar";
+    solitaire.appendChild(appSubtitleBar);
+
+    createElement("p", "app__menu", "Game", appSubtitleBar, "app__menu");
+    createElement("p", "app__menu", "Help", appSubtitleBar, "app__menu");
+
+    const appContent = document.createElement("div");
+    appContent.className = "app__content";
+    solitaire.appendChild(appContent);
+
+    createImg(
+        "./assets/solitaire-img.jpg",
+        "app__solitaire-img",
+        appContent,
+        "app__solitaire-img"
+    );
+    // document
+    //     .querySelector(".app__content-img")
+    //     .classList.add("app__content-img");
+});
+
 // app 3
 const app3Icon = desktopIcons[2];
