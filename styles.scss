@@ -37,23 +37,26 @@ body {
     }
 }
 
-.border {
-    // border: 3px solid $primary-colour;
-}
 .app {
     position: absolute;
     border: 3px solid $primary-colour;
     &__wordpad {
-        width: 40vw;
-        height: 49vh;
+        width: 500px;
+        height: 400px;
         top: 25vh;
         left: 50vw;
     }
     &__solitaire {
-        width: 60vw;
-        height: 81vh;
-        top: 10vh;
+        width: 700px;
+        height: 500px;
+        top: 5vh;
         left: 20vw;
+    }
+    &__network {
+        width: 550px;
+        height: 220px;
+        top: 30vh;
+        left: 30vw;
     }
     &__title-bar {
         display: flex;
@@ -88,17 +91,52 @@ body {
             color: white;
         }
     }
+    &__content {
+        background-color: $primary-colour;
+        font-weight: 400; //doesn't work
+        display: flex;
+    }
     &__textarea {
-        //cant style yet
-        width: 40vw;
-        height: 40vh;
+        width: 500px;
+        height: 340px;
     }
     &__solitaire-img {
-        width: 60vw;
-        height: 75vh;
+        width: 700px;
+        height: 443px;
+    }
+    &__network-img {
+        width: 50px;
+        height: 50px;
+        padding: 20px;
     }
 }
-
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 22px;
+}
+.form-instructions {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    &__input-wrapper {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+}
+.button {
+    background-color: $primary-colour;
+    width: 100px;
+    padding: 1px 0;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .start-menu-wrapper {
     display: flex;
     flex-direction: column-reverse;

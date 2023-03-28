@@ -36,16 +36,22 @@ body {
   border: 3px solid rgb(192, 192, 192);
 }
 .app__wordpad {
-  width: 40vw;
-  height: 49vh;
+  width: 500px;
+  height: 400px;
   top: 25vh;
   left: 50vw;
 }
 .app__solitaire {
-  width: 60vw;
-  height: 81vh;
-  top: 10vh;
+  width: 700px;
+  height: 500px;
+  top: 5vh;
   left: 20vw;
+}
+.app__network {
+  width: 550px;
+  height: 220px;
+  top: 30vh;
+  left: 30vw;
 }
 .app__title-bar {
   display: flex;
@@ -79,13 +85,54 @@ body {
   background-color: rgb(0, 0, 128);
   color: white;
 }
+.app__content {
+  background-color: rgb(192, 192, 192);
+  font-weight: 400;
+  display: flex;
+}
 .app__textarea {
-  width: 40vw;
-  height: 40vh;
+  width: 500px;
+  height: 340px;
 }
 .app__solitaire-img {
-  width: 60vw;
-  height: 75vh;
+  width: 700px;
+  height: 443px;
+}
+.app__network-img {
+  width: 50px;
+  height: 50px;
+  padding: 20px;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 22px;
+}
+
+.form-instructions {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.form__input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.button {
+  background-color: rgb(192, 192, 192);
+  width: 100px;
+  padding: 1px 0;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .start-menu-wrapper {
