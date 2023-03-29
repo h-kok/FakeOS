@@ -1,16 +1,25 @@
 // start menu
 const startBtn = document.querySelector(".start-btn");
 const startMenu = document.querySelector(".start-menu");
+const startMenuSidebar = document.querySelector(".start-menu-sidebar");
+console.log(startMenuSidebar);
 startBtn.addEventListener("click", () => {
     startMenu.classList.toggle("start-menu-show");
+    startMenuSidebar.classList.toggle("start-menu-sidebar-show");
 });
 
 // date time
-const today = new Date();
-let time = `${today.getHours()}:${today.getMinutes()}`;
-let date = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
-const currentDateTime = `${time} ${date}`;
-document.querySelector(".current-date").innerHTML = currentDateTime;
+const getDateTime = () => {
+    const today = new Date();
+    const time = `${today.getHours()}:${today.getMinutes()}`;
+    const date = `${today.getDate()}/${
+        today.getMonth() + 1
+    }/${today.getFullYear()}`;
+    const currentDateTime = `${time} ${date}`;
+    document.querySelector(".current-date").innerHTML = currentDateTime;
+    setInterval(getDateTime, 60000);
+};
+getDateTime();
 
 //apps
 const desktopIcons = document.querySelectorAll(".desktop-icons__wrapper");
@@ -22,16 +31,6 @@ const app = document.querySelectorAll(".app");
 const wordpad = app[0];
 const solitaire = app[1];
 const network = app[2];
-
-const wordpadApp = document.querySelector(".app__wordpad");
-const titleBar = document.querySelectorAll(".app__title-bar");
-const titleBarWordpad = titleBar[0];
-const subtitleBar = document.querySelectorAll(".app__subtitle-bar");
-const subtitleBarWordpad = subtitleBar[0];
-const appContent = document.querySelectorAll(".app__content");
-const appContentWordpad = appContent[0];
-const closeWindow = document.querySelectorAll(".app__close-window");
-const closeWindowWordpad = closeWindow[0];
 
 const createElement = (
     elementType,
@@ -56,20 +55,25 @@ const createImg = (imgSrc, newClassName, parentNode, styling) => {
     img.classList.add(styling);
 };
 
-const createCross = (parentNode) => {
+const createCross = (parentNode, className) => {
     const img = document.createElement("img");
     img.src = "./assets/icon-close.png";
-    img.className = "app__close-window";
+    img.className = className;
     parentNode.appendChild(img);
 };
 
 //wordpad
 wordpadIcon.addEventListener("click", () => {
     wordpad.className = "app__wordpad";
+    wordpad.classList.add("app");
+
+    const appWrapper = document.createElement("div");
+    appWrapper.className = "app__wrapper1";
+    wordpad.appendChild(appWrapper);
 
     const appTitleBar = document.createElement("div");
     appTitleBar.className = "app__title-bar";
-    wordpad.appendChild(appTitleBar);
+    appWrapper.appendChild(appTitleBar);
 
     createImg(
         "./assets/icon-wordpad.png",
@@ -78,12 +82,11 @@ wordpadIcon.addEventListener("click", () => {
         "app__title-bar-img"
     );
     createElement("p", "app__name", "Untitled - WordPad", appTitleBar);
-    createCross(appTitleBar);
-    wordpad.classList.add("app");
+    createCross(appTitleBar, "app__close-wordpad");
 
     const subtitleBar = document.createElement("div");
     subtitleBar.className = "app__subtitle-bar";
-    wordpad.appendChild(subtitleBar);
+    appWrapper.appendChild(subtitleBar);
 
     createElement("p", "app__menu", "File", subtitleBar, "app__menu");
     createElement("p", "app__menu", "Edit", subtitleBar, "app__menu");
@@ -91,13 +94,14 @@ wordpadIcon.addEventListener("click", () => {
 
     const appContent = document.createElement("div");
     appContent.className = "app__content";
-    wordpad.appendChild(appContent);
+    appWrapper.appendChild(appContent);
 
     createElement("textarea", "app__textarea", "", appContent, "app__textarea");
 
-    const closeWindow = document.querySelectorAll("app__close-window");
+    const closeWindow = document.querySelector(".app__close-wordpad");
+
     closeWindow.addEventListener("click", () => {
-        console.log("its working");
+        wordpad.removeChild(document.querySelector(".app__wrapper1"));
     });
 });
 
@@ -105,10 +109,15 @@ wordpadIcon.addEventListener("click", () => {
 
 solitaireIcon.addEventListener("click", () => {
     solitaire.className = "app__solitaire";
+    solitaire.classList.add("app");
+
+    const appWrapper = document.createElement("div");
+    appWrapper.className = "app__wrapper2";
+    solitaire.appendChild(appWrapper);
 
     const appTitleBar = document.createElement("div");
     appTitleBar.className = "app__title-bar";
-    solitaire.appendChild(appTitleBar);
+    appWrapper.appendChild(appTitleBar);
 
     createImg(
         "./assets/icon-solitaire.png",
@@ -118,19 +127,18 @@ solitaireIcon.addEventListener("click", () => {
     );
 
     createElement("p", ".app__name", "Solitaire", appTitleBar);
-    createCross(appTitleBar);
-    solitaire.classList.add("app");
+    createCross(appTitleBar, "app__close-solitaire");
 
     const appSubtitleBar = document.createElement("div");
     appSubtitleBar.className = "app__subtitle-bar";
-    solitaire.appendChild(appSubtitleBar);
+    appWrapper.appendChild(appSubtitleBar);
 
     createElement("p", "app__menu", "Game", appSubtitleBar, "app__menu");
     createElement("p", "app__menu", "Help", appSubtitleBar, "app__menu");
 
     const appContent = document.createElement("div");
     appContent.className = "app__content";
-    solitaire.appendChild(appContent);
+    appWrapper.appendChild(appContent);
 
     createImg(
         "./assets/solitaire-img.jpg",
@@ -138,24 +146,34 @@ solitaireIcon.addEventListener("click", () => {
         appContent,
         "app__solitaire-img"
     );
+
+    const closeWindow = document.querySelector(".app__close-solitaire");
+
+    closeWindow.addEventListener("click", () => {
+        solitaire.removeChild(document.querySelector(".app__wrapper2"));
+    });
 });
 
 // Network
 
 networkIcon.addEventListener("click", () => {
     network.className = "app__network";
+    network.classList.add("app");
+
+    const appWrapper = document.createElement("div");
+    appWrapper.className = "app__wrapper3";
+    network.appendChild(appWrapper);
 
     const appTitleBar = document.createElement("div");
     appTitleBar.className = "app__title-bar";
-    network.appendChild(appTitleBar);
+    appWrapper.appendChild(appTitleBar);
 
     createElement("p", "app__name", "Enter Network Password", appTitleBar);
-    createCross(appTitleBar);
-    network.classList.add("app");
+    createCross(appTitleBar, "app__close-network");
 
     const appContent = document.createElement("div");
     appContent.className = "app__content";
-    network.appendChild(appContent);
+    appWrapper.appendChild(appContent);
 
     createImg(
         "./assets/icon-network.png",
@@ -227,4 +245,10 @@ networkIcon.addEventListener("click", () => {
 
     createElement("button", "button", "OK", buttonWrapper, "button");
     createElement("button", "button", "Cancel", buttonWrapper, "button");
+
+    const closeWindow = document.querySelector(".app__close-network");
+
+    closeWindow.addEventListener("click", () => {
+        network.removeChild(document.querySelector(".app__wrapper3"));
+    });
 });

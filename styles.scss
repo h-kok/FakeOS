@@ -1,6 +1,19 @@
 $primary-colour: rgb(192, 192, 192);
 $secondary-colour: rgb(0, 0, 128);
+$tertiary-colour: rgb(129, 130, 132);
 $default-font: Arial, Helvetica, sans-serif;
+
+%cross-styling {
+    background-color: $primary-colour;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 5px;
+}
+
+%primary-border-style {
+    border: 3px solid $primary-colour;
+}
 
 * {
     padding: 0;
@@ -39,7 +52,16 @@ body {
 
 .app {
     position: absolute;
-    border: 3px solid $primary-colour;
+
+    &__wrapper1 {
+        @extend %primary-border-style;
+    }
+    &__wrapper2 {
+        @extend %primary-border-style;
+    }
+    &__wrapper3 {
+        @extend %primary-border-style;
+    }
     &__wordpad {
         width: 500px;
         height: 400px;
@@ -71,12 +93,14 @@ body {
         width: 20px;
         height: 20px;
     }
-    &__close-window {
-        background-color: $primary-colour;
-        width: 20px;
-        height: 20px;
-        position: absolute;
-        right: 3px;
+    &__close-wordpad {
+        @extend %cross-styling;
+    }
+    &__close-solitaire {
+        @extend %cross-styling;
+    }
+    &__close-network {
+        @extend %cross-styling;
     }
     &__subtitle-bar {
         display: flex;
@@ -147,23 +171,39 @@ body {
     align-items: center;
     background-color: $primary-colour;
     padding: 0 1vw;
-    height: 3vw;
+    height: 50px;
     margin-left: 1px;
     position: fixed;
     bottom: 0;
 }
 
+.start-menu-sidebar {
+    display: none;
+    position: absolute;
+    left: -197px;
+    bottom: 248px;
+    margin-left: 1px;
+    transform: rotate(270deg);
+    color: $primary-colour;
+    background-color: $tertiary-colour;
+    padding: 5px;
+    width: 423px;
+    &__text {
+        font-size: x-large;
+        text-align: left;
+    }
+}
 .start-menu {
     display: none;
     position: absolute;
-    bottom: 3vw;
-    margin-left: 1px;
+    bottom: 50px;
+    margin-left: 40px;
     background-color: $primary-colour;
     &__item {
         display: flex;
         align-items: center;
         border: 1px solid black;
-        height: 3vw;
+        height: 50px;
         padding: 5px;
         padding-right: 70px;
         &:hover {
@@ -182,12 +222,16 @@ body {
     display: grid;
 }
 
+.start-menu-sidebar-show {
+    display: grid;
+}
+
 footer {
     position: fixed;
     width: 100%;
     bottom: 0;
     background-color: $primary-colour;
-    height: 3vw;
+    height: 50px;
     display: flex;
     align-items: center;
 }

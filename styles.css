@@ -1,3 +1,15 @@
+.app__close-network, .app__close-solitaire, .app__close-wordpad {
+  background-color: rgb(192, 192, 192);
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 5px;
+}
+
+.app__wrapper3, .app__wrapper2, .app__wrapper1 {
+  border: 3px solid rgb(192, 192, 192);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -33,7 +45,6 @@ body {
 
 .app {
   position: absolute;
-  border: 3px solid rgb(192, 192, 192);
 }
 .app__wordpad {
   width: 500px;
@@ -64,13 +75,6 @@ body {
 .app__title-bar-img {
   width: 20px;
   height: 20px;
-}
-.app__close-window {
-  background-color: rgb(192, 192, 192);
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  right: 3px;
 }
 .app__subtitle-bar {
   display: flex;
@@ -145,24 +149,41 @@ body {
   align-items: center;
   background-color: rgb(192, 192, 192);
   padding: 0 1vw;
-  height: 3vw;
+  height: 50px;
   margin-left: 1px;
   position: fixed;
   bottom: 0;
 }
 
+.start-menu-sidebar {
+  display: none;
+  position: absolute;
+  left: -197px;
+  bottom: 248px;
+  margin-left: 1px;
+  transform: rotate(270deg);
+  color: rgb(192, 192, 192);
+  background-color: rgb(129, 130, 132);
+  padding: 5px;
+  width: 423px;
+}
+.start-menu-sidebar__text {
+  font-size: x-large;
+  text-align: left;
+}
+
 .start-menu {
   display: none;
   position: absolute;
-  bottom: 3vw;
-  margin-left: 1px;
+  bottom: 50px;
+  margin-left: 40px;
   background-color: rgb(192, 192, 192);
 }
 .start-menu__item {
   display: flex;
   align-items: center;
   border: 1px solid black;
-  height: 3vw;
+  height: 50px;
   padding: 5px;
   padding-right: 70px;
 }
@@ -180,12 +201,16 @@ body {
   display: grid;
 }
 
+.start-menu-sidebar-show {
+  display: grid;
+}
+
 footer {
   position: fixed;
   width: 100%;
   bottom: 0;
   background-color: rgb(192, 192, 192);
-  height: 3vw;
+  height: 50px;
   display: flex;
   align-items: center;
 }
