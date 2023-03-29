@@ -1,3 +1,85 @@
+.start-menu-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.start-btn {
+  display: flex;
+  align-items: center;
+  background-color: rgb(192, 192, 192);
+  padding: 0 1vw;
+  height: 50px;
+  margin-left: 1px;
+  position: fixed;
+  bottom: 0;
+}
+
+.start-menu-sidebar {
+  display: none;
+  position: absolute;
+  left: -195px;
+  bottom: 245px;
+  margin-left: 1px;
+  transform: rotate(270deg);
+  color: rgb(192, 192, 192);
+  background-color: rgb(129, 130, 132);
+  padding: 5px;
+  width: 420px;
+}
+.start-menu-sidebar__text {
+  font-size: x-large;
+  text-align: left;
+}
+
+.start-menu {
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  margin-left: 40px;
+  background-color: rgb(192, 192, 192);
+}
+.start-menu__item {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  height: 50px;
+  padding: 5px;
+  padding-right: 70px;
+}
+.start-menu__item:hover {
+  background-color: rgb(0, 0, 128);
+  color: white;
+}
+.start-menu__arrow {
+  position: absolute;
+  right: 0;
+  margin-right: 5px;
+}
+
+.start-menu-show {
+  display: grid;
+}
+
+.start-menu-sidebar-show {
+  display: grid;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: rgb(192, 192, 192);
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.current-date {
+  padding-right: 1%;
+  position: fixed;
+  right: 0;
+}
+
 .app__close-network, .app__close-solitaire, .app__close-wordpad {
   background-color: rgb(192, 192, 192);
   width: 20px;
@@ -8,39 +90,6 @@
 
 .app__wrapper3, .app__wrapper2, .app__wrapper1 {
   border: 3px solid rgb(192, 192, 192);
-}
-
-* {
-  padding: 0;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  font-size: 13px;
-}
-
-body {
-  background-image: url("./assets/desktop-background.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
-
-.desktop-icons {
-  display: flex;
-  flex-direction: column;
-  padding: 5vw;
-}
-.desktop-icons__wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 4vw;
-  margin: 2vw 0;
-}
-.desktop-icons__txt {
-  color: white;
-  text-shadow: 0 0 5px black;
 }
 
 .app {
@@ -99,7 +148,7 @@ body {
   height: 340px;
 }
 .app__solitaire-img {
-  width: 700px;
+  width: 695px;
   height: 443px;
 }
 .app__network-img {
@@ -139,84 +188,35 @@ body {
   align-items: center;
 }
 
-.start-menu-wrapper {
-  display: flex;
-  flex-direction: column-reverse;
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
 }
 
-.start-btn {
+body {
+  background-image: url("./assets/desktop-background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.desktop-icons {
   display: flex;
+  flex-direction: column;
+  padding: 5vw;
+}
+.desktop-icons__wrapper {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  background-color: rgb(192, 192, 192);
-  padding: 0 1vw;
-  height: 50px;
-  margin-left: 1px;
-  position: fixed;
-  bottom: 0;
+  width: 4vw;
+  margin: 2vw 0;
 }
-
-.start-menu-sidebar {
-  display: none;
-  position: absolute;
-  left: -197px;
-  bottom: 248px;
-  margin-left: 1px;
-  transform: rotate(270deg);
-  color: rgb(192, 192, 192);
-  background-color: rgb(129, 130, 132);
-  padding: 5px;
-  width: 423px;
-}
-.start-menu-sidebar__text {
-  font-size: x-large;
-  text-align: left;
-}
-
-.start-menu {
-  display: none;
-  position: absolute;
-  bottom: 50px;
-  margin-left: 40px;
-  background-color: rgb(192, 192, 192);
-}
-.start-menu__item {
-  display: flex;
-  align-items: center;
-  border: 1px solid black;
-  height: 50px;
-  padding: 5px;
-  padding-right: 70px;
-}
-.start-menu__item:hover {
-  background-color: rgb(0, 0, 128);
+.desktop-icons__txt {
   color: white;
-}
-.start-menu__arrow {
-  position: absolute;
-  right: 0;
-  margin-right: 5px;
-}
-
-.start-menu-show {
-  display: grid;
-}
-
-.start-menu-sidebar-show {
-  display: grid;
-}
-
-footer {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  background-color: rgb(192, 192, 192);
-  height: 50px;
-  display: flex;
-  align-items: center;
-}
-
-.current-date {
-  padding-right: 1%;
-  position: fixed;
-  right: 0;
+  text-shadow: 0 0 5px black;
 }

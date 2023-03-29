@@ -1,0 +1,16 @@
+$primary-colour: rgb(192, 192, 192);
+$secondary-colour: rgb(0, 0, 128);
+$tertiary-colour: rgb(129, 130, 132);
+$default-font: Arial, Helvetica, sans-serif;
+
+%cross-styling {
+    background-color: $primary-colour;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 5px;
+}
+
+%primary-border-style {
+    border: 3px solid $primary-colour;
+}

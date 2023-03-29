@@ -1,0 +1,82 @@
+@import "themes";
+
+.start-menu-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.start-btn {
+    display: flex;
+    align-items: center;
+    background-color: $primary-colour;
+    padding: 0 1vw;
+    height: 50px;
+    margin-left: 1px;
+    position: fixed;
+    bottom: 0;
+}
+
+.start-menu-sidebar {
+    display: none;
+    position: absolute;
+    left: -195px;
+    bottom: 245px;
+    margin-left: 1px;
+    transform: rotate(270deg);
+    color: $primary-colour;
+    background-color: $tertiary-colour;
+    padding: 5px;
+    width: 420px;
+    &__text {
+        font-size: x-large;
+        text-align: left;
+    }
+}
+.start-menu {
+    display: none;
+    position: absolute;
+    bottom: 50px;
+    margin-left: 40px;
+    background-color: $primary-colour;
+    &__item {
+        display: flex;
+        align-items: center;
+        border: 1px solid black;
+        height: 50px;
+        padding: 5px;
+        padding-right: 70px;
+        &:hover {
+            background-color: $secondary-colour;
+            color: white;
+        }
+    }
+    &__arrow {
+        position: absolute;
+        right: 0;
+        margin-right: 5px;
+    }
+}
+
+.start-menu-show {
+    display: grid;
+}
+
+.start-menu-sidebar-show {
+    display: grid;
+}
+
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: $primary-colour;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.current-date {
+    padding-right: 1%;
+    position: fixed;
+    right: 0;
+}

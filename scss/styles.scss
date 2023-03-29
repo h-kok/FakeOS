@@ -1,0 +1,39 @@
+@use "footer";
+@use "apps";
+
+@import "themes";
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: $default-font;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+body {
+    background-image: url("./assets/desktop-background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.desktop-icons {
+    display: flex;
+    flex-direction: column;
+    padding: 5vw;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 4vw;
+        margin: 2vw 0;
+    }
+
+    &__txt {
+        color: white;
+        text-shadow: 0 0 5px black;
+    }
+}
