@@ -4,7 +4,7 @@ import {
     createCross,
     createLabel,
     createInput,
-    // createDivElement,
+    createDivDetails,
 } from "./dom-utils.js";
 
 // start menu
@@ -35,24 +35,19 @@ const desktopIcons = document.querySelectorAll(".desktop-icons__wrapper");
 const wordpadIcon = desktopIcons[0];
 const solitaireIcon = desktopIcons[1];
 const networkIcon = desktopIcons[2];
-
 const app = document.querySelectorAll(".app");
-const wordpad = app[0];
-const solitaire = app[1];
-const network = app[2];
 
 //wordpad
 wordpadIcon.addEventListener("click", () => {
+    const wordpad = app[0];
     wordpad.className = "app__wordpad";
     wordpad.classList.add("app");
 
     const appWrapper = document.createElement("div");
-    appWrapper.className = "app__wrapper1";
-    wordpad.appendChild(appWrapper);
+    createDivDetails(appWrapper, "app__wrapper1", wordpad);
 
     const appTitleBar = document.createElement("div");
-    appTitleBar.className = "app__title-bar";
-    appWrapper.appendChild(appTitleBar);
+    createDivDetails(appTitleBar, "app__title-bar", appWrapper);
 
     createImg(
         "./assets/icon-wordpad.png",
@@ -64,16 +59,14 @@ wordpadIcon.addEventListener("click", () => {
     createCross(appTitleBar, "app__close-wordpad");
 
     const subtitleBar = document.createElement("div");
-    subtitleBar.className = "app__subtitle-bar";
-    appWrapper.appendChild(subtitleBar);
+    createDivDetails(subtitleBar, "app__subtitle-bar", appWrapper);
 
     createTextElement("p", "app__menu", "File", subtitleBar, "app__menu");
     createTextElement("p", "app__menu", "Edit", subtitleBar, "app__menu");
     createTextElement("p", "app__menu", "View", subtitleBar, "app__menu");
 
     const appContent = document.createElement("div");
-    appContent.className = "app__content";
-    appWrapper.appendChild(appContent);
+    createDivDetails(appContent, "app__content", appWrapper);
 
     createTextElement(
         "textarea",
@@ -91,18 +84,16 @@ wordpadIcon.addEventListener("click", () => {
 });
 
 // solitaire
-
 solitaireIcon.addEventListener("click", () => {
+    const solitaire = app[1];
     solitaire.className = "app__solitaire";
     solitaire.classList.add("app");
 
     const appWrapper = document.createElement("div");
-    appWrapper.className = "app__wrapper2";
-    solitaire.appendChild(appWrapper);
+    createDivDetails(appWrapper, "app__wrapper2", solitaire);
 
     const appTitleBar = document.createElement("div");
-    appTitleBar.className = "app__title-bar";
-    appWrapper.appendChild(appTitleBar);
+    createDivDetails(appTitleBar, "app__title-bar", appWrapper);
 
     createImg(
         "./assets/icon-solitaire.png",
@@ -115,15 +106,13 @@ solitaireIcon.addEventListener("click", () => {
     createCross(appTitleBar, "app__close-solitaire");
 
     const appSubtitleBar = document.createElement("div");
-    appSubtitleBar.className = "app__subtitle-bar";
-    appWrapper.appendChild(appSubtitleBar);
+    createDivDetails(appSubtitleBar, "app__subtitle-bar", appWrapper);
 
     createTextElement("p", "app__menu", "Game", appSubtitleBar, "app__menu");
     createTextElement("p", "app__menu", "Help", appSubtitleBar, "app__menu");
 
     const appContent = document.createElement("div");
-    appContent.className = "app__content";
-    appWrapper.appendChild(appContent);
+    createDivDetails(appContent, "app__content", appWrapper);
 
     createImg(
         "./assets/solitaire-img.jpg",
@@ -140,25 +129,22 @@ solitaireIcon.addEventListener("click", () => {
 });
 
 // Network
-
 networkIcon.addEventListener("click", () => {
+    const network = app[2];
     network.className = "app__network";
     network.classList.add("app");
 
     const appWrapper = document.createElement("div");
-    appWrapper.className = "app__wrapper3";
-    network.appendChild(appWrapper);
+    createDivDetails(appWrapper, "app__wrapper3", network);
 
     const appTitleBar = document.createElement("div");
-    appTitleBar.className = "app__title-bar";
-    appWrapper.appendChild(appTitleBar);
+    createDivDetails(appTitleBar, "app__title-bar", appWrapper);
 
     createTextElement("p", "app__name", "Enter Network Password", appTitleBar);
     createCross(appTitleBar, "app__close-network");
 
     const appContent = document.createElement("div");
-    appContent.className = "app__content";
-    appWrapper.appendChild(appContent);
+    createDivDetails(appContent, "app__content", appWrapper);
 
     createImg(
         "./assets/icon-network.png",
@@ -168,8 +154,7 @@ networkIcon.addEventListener("click", () => {
     );
 
     const formWrapper = document.createElement("div");
-    formWrapper.className = "form-wrapper";
-    appContent.appendChild(formWrapper);
+    createDivDetails(formWrapper, "form-wrapper", appContent);
 
     createTextElement(
         "p",
@@ -179,33 +164,28 @@ networkIcon.addEventListener("click", () => {
     );
 
     const form = document.createElement("form");
-    form.className = "form";
-    formWrapper.appendChild(form);
+    createDivDetails(form, "form", formWrapper);
 
     const inputWrapper = document.createElement("div");
-    inputWrapper.className = "form__input-wrapper";
-    form.appendChild(inputWrapper);
+    createDivDetails(inputWrapper, "form__input-wrapper", form);
 
     createLabel("form__username", inputWrapper, "User name: ");
     createInput("form__username", inputWrapper);
 
     const inputWrapper2 = document.createElement("div");
-    inputWrapper2.className = "form__input-wrapper";
-    form.appendChild(inputWrapper2);
+    createDivDetails(inputWrapper2, "form__input-wrapper", form);
 
     createLabel("form__password", inputWrapper2, "Password: ");
     createInput("form__password", inputWrapper2);
 
     const inputWrapper3 = document.createElement("div");
-    inputWrapper3.className = "form__input-wrapper";
-    form.appendChild(inputWrapper3);
+    createDivDetails(inputWrapper3, "form__input-wrapper", form);
 
     createLabel("form__domain", inputWrapper3, "Domain: ");
     createInput("form__domain", inputWrapper3);
 
     const buttonWrapper = document.createElement("div");
-    buttonWrapper.className = "button-wrapper";
-    appContent.appendChild(buttonWrapper);
+    createDivDetails(buttonWrapper, "button-wrapper", appContent);
 
     createTextElement("button", "button", "OK", buttonWrapper, "button");
     createTextElement("button", "button", "Cancel", buttonWrapper, "button");

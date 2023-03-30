@@ -42,8 +42,7 @@ export const createInput = (id, parentNode) => {
     parentNode.appendChild(input);
 };
 
-// export const createDivElement = (className, parentNode) => {
-//     const div = document.createElement("div");
-//     div.className = className;
-//     document.querySelector(parentNode).appendChild(div);
-// };
+export const createDivDetails = (constName, className, parentNode) => {
+    constName.className = className;
+    parentNode.appendChild(constName);
+};
