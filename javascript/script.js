@@ -1,4 +1,5 @@
 import {
+    getDateTime,
     createTextElement,
     createImg,
     createCross,
@@ -18,17 +19,25 @@ startBtn.addEventListener("click", () => {
 });
 
 // date time
-const getDateTime = () => {
-    const today = new Date();
-    const time = `${today.getHours()}:${today.getMinutes()}`;
-    const date = `${today.getDate()}/${
-        today.getMonth() + 1
-    }/${today.getFullYear()}`;
-    const currentDateTime = `${time} ${date}`;
-    document.querySelector(".current-date").innerHTML = currentDateTime;
-    setInterval(getDateTime, 60000);
-};
-getDateTime();
+// still doesn't update every min
+document.querySelector(".current-date").innerHTML = getDateTime();
+
+// const appToFront = () => {
+//     let counter = 1;
+//     const app1 = document.querySelector("app__wrapper1");
+//     const app2 = document.querySelector("app__wrapper2");
+//     const app3 = document.querySelector("app__wrapper3");
+
+//     app1.addEventListener("click", () => {
+//         this.styles.app.zIndex = ++counter;
+//     });
+//     app2.addEventListener("click", () => {
+//         this.styles.app.zIndex = ++counter;
+//     });
+//     app3.addEventListener("click", () => {
+//         this.styles.app.zIndex = ++counter;
+//     });
+// };
 
 //apps
 const desktopIcons = document.querySelectorAll(".desktop-icons__wrapper");
@@ -37,8 +46,12 @@ const solitaireIcon = desktopIcons[1];
 const networkIcon = desktopIcons[2];
 const app = document.querySelectorAll(".app");
 
+//returns errors
+if (document.querySelector(".app__wrapper1")) {
+    wordpadIcon.removeEventListener();
+}
 //wordpad
-wordpadIcon.addEventListener("click", () => {
+wordpadIcon.addEventListener("dblclick", () => {
     const wordpad = app[0];
     wordpad.className = "app__wordpad";
     wordpad.classList.add("app");
@@ -84,7 +97,7 @@ wordpadIcon.addEventListener("click", () => {
 });
 
 // solitaire
-solitaireIcon.addEventListener("click", () => {
+solitaireIcon.addEventListener("dblclick", () => {
     const solitaire = app[1];
     solitaire.className = "app__solitaire";
     solitaire.classList.add("app");
@@ -129,7 +142,7 @@ solitaireIcon.addEventListener("click", () => {
 });
 
 // Network
-networkIcon.addEventListener("click", () => {
+networkIcon.addEventListener("dblclick", () => {
     const network = app[2];
     network.className = "app__network";
     network.classList.add("app");
@@ -187,12 +200,23 @@ networkIcon.addEventListener("click", () => {
     const buttonWrapper = document.createElement("div");
     createDivDetails(buttonWrapper, "button-wrapper", appContent);
 
-    createTextElement("button", "button", "OK", buttonWrapper, "button");
-    createTextElement("button", "button", "Cancel", buttonWrapper, "button");
+    createTextElement("button", "btn-ok", "OK", buttonWrapper, "button");
+    createTextElement(
+        "button",
+        "btn-cancel",
+        "Cancel",
+        buttonWrapper,
+        "button"
+    );
 
     document
         .querySelector(".app__close-network")
         .addEventListener("click", () => {
             network.removeChild(document.querySelector(".app__wrapper3"));
         });
+
+    document.querySelector(".btn-cancel").addEventListener("click", () => {
+        console.log("click");
+        network.removeChild(document.querySelector(".app__wrapper3"));
+    });
 });

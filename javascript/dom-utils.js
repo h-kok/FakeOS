@@ -1,3 +1,15 @@
+export const getDateTime = () => {
+    const date = new Date().toLocaleTimeString("en-AU", {
+        timeZone: "Australia/Sydney",
+        hour12: true,
+        hour: "2-digit",
+        minute: "2-digit",
+    });
+    // console.log(date);
+    setInterval(getDateTime, 60000);
+    return date;
+};
+
 export const createTextElement = (
     elementType,
     newClassName,
