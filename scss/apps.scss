@@ -1,16 +1,19 @@
 @import "themes";
 
 .app {
-    position: absolute;
+    // position: absolute;
 
     &__wrapper1 {
         @extend %primary-border-style;
+        position: absolute;
     }
     &__wrapper2 {
         @extend %primary-border-style;
+        position: absolute;
     }
     &__wrapper3 {
         @extend %primary-border-style;
+        position: absolute;
     }
     &__wordpad {
         width: 500px;
