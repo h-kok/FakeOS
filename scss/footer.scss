@@ -1,0 +1,89 @@
+@import "themes";
+
+.start-menu-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.start-btn {
+    display: flex;
+    align-items: center;
+    background-color: $primary-colour;
+    padding: 0 1vw;
+    height: 50px;
+    margin-left: 1px;
+    position: fixed;
+    bottom: 0;
+}
+
+.start-menu-sidebar {
+    display: none;
+    position: absolute;
+    left: -190px;
+    bottom: 240px;
+    // margin-left: 1px;
+    transform: rotate(-0.25turn);
+    color: $primary-colour;
+    background-color: $tertiary-colour;
+    border: 2px solid $primary-colour;
+    padding: 5px;
+    width: 410px;
+    &__text {
+        font-size: x-large;
+        text-align: left;
+    }
+}
+.start-menu {
+    display: none;
+    position: absolute;
+    bottom: 50px;
+    margin-left: 40px;
+    background-color: $primary-colour;
+    border: 2px solid $tertiary-colour;
+    &__item {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        padding: 5px;
+        padding-right: 70px;
+        &:nth-last-of-type(1) {
+            border-top: 1px solid $tertiary-colour;
+        }
+        &:hover {
+            background-color: $secondary-colour;
+            color: white;
+        }
+    }
+    &__arrow {
+        position: absolute;
+        right: 0;
+        margin-right: 5px;
+    }
+}
+#nine-five {
+    color: white;
+    font-size: x-large;
+}
+.start-menu-show {
+    display: grid;
+}
+
+.start-menu-sidebar-show {
+    display: flex;
+}
+
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: $primary-colour;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.current-date {
+    padding-right: 1%;
+    position: fixed;
+    right: 0;
+}
