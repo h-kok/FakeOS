@@ -21,7 +21,6 @@
 
 ## Future Goals
 
--   What are the immediate features you'd add given more time
 -   Refactor JavaScript to create one event listener for all apps.
 -   Create function to bring interaction to solitaire 'app'. E.g. function on hover over image or create 'enter name' form to begin a new game.
 -   Create function to bring clicked app to front.
@@ -35,6 +34,10 @@
 
 -   This project was submitted on 03/04/23.
 -   Update README to include known issues and future goals.
+
+### 29/04/23
+
+-   Fix bug prevent apps from opening if already open.
 
 ---
 
