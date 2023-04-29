@@ -20,7 +20,10 @@ startBtn.addEventListener("click", () => {
 
 // date time
 // still doesn't update every min
-document.querySelector(".current-date").innerHTML = getDateTime();
+// setInterval(
+//     (document.querySelector(".current-date").innerHTML = getDateTime()),
+//     10000
+// );
 
 // const appToFront = () => {
 //     let counter = 1;
@@ -46,15 +49,21 @@ const solitaireIcon = desktopIcons[1];
 const networkIcon = desktopIcons[2];
 const app = document.querySelectorAll(".app");
 
-//returns errors
-if (document.querySelector(".app__wrapper1")) {
-    wordpadIcon.removeEventListener();
-}
-//wordpad
+// console.log(desktopIcons, "icons");
+// desktopIcons.forEach((icon) =>
+//     icon.addEventListener("dblclick", () => {
+//         console.log("clicked");
+//     })
+// );
+
 wordpadIcon.addEventListener("dblclick", () => {
     const wordpad = app[0];
     wordpad.className = "app__wordpad";
     wordpad.classList.add("app");
+
+    if (wordpad.hasChildNodes()) {
+        wordpad.removeChild(document.querySelector(".app__wrapper1"));
+    }
 
     const appWrapper = document.createElement("div");
     createDivDetails(appWrapper, "app__wrapper1", wordpad);
@@ -102,6 +111,10 @@ solitaireIcon.addEventListener("dblclick", () => {
     solitaire.className = "app__solitaire";
     solitaire.classList.add("app");
 
+    if (solitaire.hasChildNodes()) {
+        solitaire.removeChild(document.querySelector(".app__wrapper2"));
+    }
+
     const appWrapper = document.createElement("div");
     createDivDetails(appWrapper, "app__wrapper2", solitaire);
 
@@ -146,6 +159,10 @@ networkIcon.addEventListener("dblclick", () => {
     const network = app[2];
     network.className = "app__network";
     network.classList.add("app");
+
+    if (network.hasChildNodes()) {
+        network.removeChild(document.querySelector(".app__wrapper3"));
+    }
 
     const appWrapper = document.createElement("div");
     createDivDetails(appWrapper, "app__wrapper3", network);
