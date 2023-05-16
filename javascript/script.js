@@ -19,11 +19,11 @@ startBtn.addEventListener("click", () => {
 });
 
 // date time
-// still doesn't update every min
-// setInterval(
-//     (document.querySelector(".current-date").innerHTML = getDateTime()),
-//     10000
-// );
+const updateTime = () => {
+    document.querySelector(".current-date").innerHTML = getDateTime();
+    setInterval(updateTime, 30000);
+};
+updateTime();
 
 // const appToFront = () => {
 //     let counter = 1;

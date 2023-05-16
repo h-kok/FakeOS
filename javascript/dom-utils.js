@@ -5,8 +5,6 @@ export const getDateTime = () => {
         hour: "2-digit",
         minute: "2-digit",
     });
-    // console.log(date);
-    setInterval(getDateTime, 60000);
     return date;
 };
 
