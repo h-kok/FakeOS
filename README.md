@@ -39,6 +39,10 @@
 
 -   Fix bug prevent apps from opening if already open.
 
+### 16/05/23
+
+-   Add updateTime function to fix bug, time not updating every minute, or showing wrong data. Now clock updates to show minute changes and get date time function remains separated from DOM.
+
 ---
 
 ## What did you struggle with?
